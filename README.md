@@ -3,6 +3,7 @@
 This is currently a work in progress, but when finished it will allow you to post your information on landing page
 and others will be able to contact you about wanting to work with you.
 
+## Note: This will not currently work without the proper Azure credentials
 ## Prerequisites
 * Node.js >= 8.10
 * npm >= 5.6
