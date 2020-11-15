@@ -1,0 +1,250 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Arial, serif;
+}
+
+body {
+  background-color: #4b2e83;
+  min-width: 50%;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 64px;
+  font-weight: 900;
+}
+
+button {
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 18px;
+  cursor: pointer;
+  outline: none;
+}
+button:hover {
+  background-color: #cfd8dc;
+}
+button.delete-button {
+  background-color: #e94c4c !important;
+  color: white;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 0 0 18px 18px;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%);
+  transform: translate(-50%);
+}
+
+.delete-button:hover {
+  background-color: #e67676 !important;
+  color: white;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+.testt {
+  display: block;
+}
+
+button.join-button {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+button.filter-button {
+  font-size: 24px;
+}
+
+.menu {
+  width: 100%;
+  justify-content: center;
+  margin: auto;
+  position: relative;
+  display: flex;
+  text-align: center;
+}
+
+.menu_item {
+  z-index: 100;
+  display: inline-block;
+  padding: 2%;
+}
+
+
+.participants {
+  margin: 0 auto;
+  list-style-type: none;
+}
+
+.participants li {
+  float: left;
+  border: 1px solid white;
+  color: #99AAB5;
+  position: relative;
+  left: 10px;
+  background-color: #2C2F33;
+  margin: .5em;
+  padding: .5em;
+  min-height: 25em;
+  max-height: 25em;
+  border-radius: 18px;
+  width: 20em;
+}
+
+.participants .name {
+  height: 40px;
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.participants .data {
+  height: 25px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  overflow-wrap: break-word;
+}
+
+.participants .desc {
+  font-weight: bold;
+  font-size: 18px;
+  height: 25px;
+}
+
+input {
+  height: 2em;
+  font-size: 1em;
+  padding-left: .4em;
+  margin-bottom: 5px;
+  background-color: #474444;
+  color: white;
+  position: relative;
+}
+
+input::placeholder {
+  color: #474444;
+  font-weight: normal;
+  font-size: 12px;
+  letter-spacing: 3px;
+}
+
+.editfields {
+  border: 1px solid white;
+  color: #99AAB5;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 18px;
+  background-color: #2C2F33;
+  position: absolute;
+  text-align: left;
+}
+
+.prompt {
+  margin-bottom: 5px;
+  margin-top: 5%;
+}
+
+.mismatch {
+  font-weight: normal;
+  font-size: 12px;
+  color: #e94c4c;
+  margin-bottom: 5px;
+}
+
+.decision-buttons {
+  margin-top: 10px;
+  position: relative;
+  text-align: center;
+}
+
+.checkbox-label {
+  display: block;
+  font-weight: normal;
+}
+
+[type="checkbox"] {
+  -ms-transform: scale(1.25); /* IE */
+  -moz-transform: scale(1.25); /* FF */
+  -webkit-transform: scale(1.25); /* Safari and Chrome */
+  -o-transform: scale(1.25); /* Opera */
+  transform: scale(1.25);
+  position: relative;
+  height: 15px;
+  margin-top: 1%;
+  margin-bottom: 2%;
+  vertical-align: middle;
+  margin-left: 5%;
+  right: 2%;
+}
+
+.divider1 {
+  width:10%;
+  height:auto;
+  display:inline-block;
+}
+
+.cancel {
+  background-color: #e94c4c;
+  color: white;
+}
+
+.cancel:hover {
+  background-color: #e67676;
+}
+
+.submit {
+  background-color: #4ec14e;
+  color: white;
+}
+
+.submit:hover {
+  background-color: #79cf79;
+}
+
+.delete-form {
+  border: 1px solid white;
+  color: #99AAB5;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 18px;
+  top: -100px;
+  background-color: #2C2F33;
+}
+
+.delete-wrapper {
+  bottom: 10%;
+  position: absolute;
+  left: 50%;
+  -ms-transform: translate(-50%);
+  transform: translate(-50%);
+  width: 95%;
+  display: inline-block;
+  text-overflow: clip;
+}
+
+.long-input {
+  display: inline-block;
+  width: 95%;
+  vertical-align: middle;
+}
