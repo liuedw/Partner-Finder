@@ -13,11 +13,11 @@ export default class OutsideAlerter extends Component {
     }
 
     componentDidMount() {
-        document.addEventListener('mousedown', this.handleClickOutside);
+        document.addEventListener('mouseup', this.handleClickOutside);
     }
 
     componentWillUnmount() {
-        document.removeEventListener('mousedown', this.handleClickOutside);
+        document.removeEventListener('mouseup', this.handleClickOutside);
     }
 
     /**
@@ -32,7 +32,7 @@ export default class OutsideAlerter extends Component {
      */
     handleClickOutside(event) {
         if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-            this.props.onCancel();
+            this.props.onCancel(event);
         }
     }
 
