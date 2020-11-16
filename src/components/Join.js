@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import AddParticipant from "./AddParticipant";
+import JoinMenu from "./JoinMenu";
 import OutsideAlerter from "./OutsideAlerter";
 
-var initialState = {
+const initialState = {
+    projectID: -1,
+    domain: "",
     name: "",
     contact: "",
     skills: "",
@@ -17,51 +19,49 @@ var initialState = {
 const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
-export default class Join extends Component {
+class Join extends Component {
 
 
-    constructor() {
-        super();
-        
-        fetch("http://localhost:8080/api/skills?projectID=0").then(result => result.json()).then(json => {
-            for (var i = 0; i < json.length; i++) {
-                initialState.relevantSkills.push(json[i]);
-            }
-            this.setState({relevantSkills: json})
-        })
+    constructor(parent) {
+        super(parent)
 
+        initialState.projectID = parent.props.projectID
+        initialState.relevantSkills = parent.props.relevantSkills
+        initialState.domain = parent.domain
         this.state = initialState;
+
+
         this.handleAdd = this.handleAdd.bind(this)
         this.handleCancel = this.handleCancel.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
+
     }
 
-    handleCancel() {
-        this.setState(initialState);
-        this.setState({checkedSkills: []})
+    handleCancel(event) {
+        if (event.name !== "open join") {
+            this.setState(initialState);
+            this.setState({checkedSkills: []})
+        }
     }
 
     handleSubmit() {
         if (this.state.password === this.state.confirmation && this.state.password !== "") {
-            var hash = bcrypt.hashSync(this.state.password, saltRounds);
-            fetch("http://localhost:8080/api/add?projectID=0", {
+            const hash = bcrypt.hashSync(this.state.password, saltRounds);
+            fetch(this.state.domain + "add?projectID=" + this.state.projectID, {
                 method: "POST",
                 body: JSON.stringify({
                     name: this.state.name,
                     contact: this.state.contact,
                     skills: this.state.checkedSkills,
                     message: this.state.greeting,
-                    hashword: hash,
-                    salt: "a"
+                    hashword: hash
                 }),
                 headers: { 
                     "Content-type": "application/json; charset=UTF-8"
                 } 
             }).then(response => response.json())
-            this.setState(initialState)
-            this.setState({checkedSkills: []})
             window.location.reload()
         }
     }
@@ -89,19 +89,20 @@ export default class Join extends Component {
 
     handleAdd() {
         if (! this.state.adding) {
-            this.setState(
-                {adding: true}
-            );
+            this.setState({adding: true});
+        } else {
+            this.setState(initialState);
+            this.setState({checkedSkills: []})
         }
     }
 
     render() {
-        var joinMenu;
+        let joinMenu;
         if (this.state.adding) {
             joinMenu =
                 <OutsideAlerter onCancel={this.handleCancel}>
                     <div>
-                        <AddParticipant
+                        <JoinMenu
                             state={this.state}
                             onChange={this.handleChange}
                             onSubmit={this.handleSubmit}
@@ -115,9 +116,11 @@ export default class Join extends Component {
         }
         return (
             <div className = "menu_item">
-                <button className="join-button" onClick={this.handleAdd}>Join This Project</button>
+                <button className="join-button" name="open join" onClick={this.handleAdd}>Join This Project</button>
                 {joinMenu}
             </div>
         );
     }
 }
+
+export default Join

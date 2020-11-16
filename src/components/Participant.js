@@ -2,7 +2,7 @@ import React from 'react';
 import OutsideAlerter from "./OutsideAlerter";
 
 const Participant = properties => {
-    var deleteForm;
+    let deleteForm;
     if (parseInt(properties.state.deleting) === properties.participant.id) {
         deleteForm =
         <div className="delete-wrapper">
