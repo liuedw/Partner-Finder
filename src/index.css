@@ -61,10 +61,6 @@ button.delete-button {
   font-size: 14px;
 }
 
-.testt {
-  display: block;
-}
-
 button.join-button {
   font-size: 24px;
   margin-bottom: 10px;
@@ -72,6 +68,7 @@ button.join-button {
 
 button.filter-button {
   font-size: 24px;
+  margin-bottom: 10px;
 }
 
 .menu {
@@ -86,7 +83,7 @@ button.filter-button {
 .menu_item {
   z-index: 100;
   display: inline-block;
-  padding: 2%;
+  padding: 0 2%;
 }
 
 
@@ -157,6 +154,8 @@ input::placeholder {
   background-color: #2C2F33;
   position: absolute;
   text-align: left;
+  min-width: 210px;
+  z-index: 100  ;
 }
 
 .prompt {
@@ -247,4 +246,17 @@ input::placeholder {
   display: inline-block;
   width: 95%;
   vertical-align: middle;
+}
+
+.filter-grid {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.filter-grid-item {
+  text-align: left;
+  min-width: 75px;
+  margin-bottom: 20px;
 }
