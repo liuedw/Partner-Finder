@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FilterMenu from "./FilterMenu";
-import OutsideAlerter from "./OutsideAlerter";
+import OutsideAlerter from "../OutsideAlerter";
 
 export default class Filter extends Component {
 
