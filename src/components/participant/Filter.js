@@ -39,8 +39,6 @@ export default class Filter extends Component {
 
     // Done
     handleCheck(event) {
-        console.log(event.target.id)
-        console.log(event.target.checked)
         let updatedFilter;
         if (event.target.checked) {
             updatedFilter = this.state.filteredSkills;
