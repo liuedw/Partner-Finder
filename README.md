@@ -1,6 +1,6 @@
 # Partner Finder
 
-This is currently a work in progress, but when finished it will allow you to post your information on landing page
+Partner Finder is an app that allows you to post your information on landing page
 and others will be able to contact you about wanting to work with you.
 
 ## Note: This will not currently work without the proper Azure credentials
@@ -10,14 +10,12 @@ and others will be able to contact you about wanting to work with you.
 
 ## Installing
 ```bash
-git clone 'this-repo-url' app-name
-cd app-name
+git clone https://github.com/liuedw/Partner-Finder.git Partner-Finder
+cd Partner-Finder
 npm install
-npm install --save browser-router
 ```
 
 ## Running The App
-Simply run
 ```bash
 npm start
 ```
