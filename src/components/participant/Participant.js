@@ -17,8 +17,7 @@ const Participant = properties => {
                     <input className="long-input"
                         name="password"
                         type="password"
-                        value={properties.state.name}
-                        placeholder="password"
+                        value={properties.state.password}
                         onChange={properties.onChange}
                     />
                     <label className="checkbox-label">
