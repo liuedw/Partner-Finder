@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom"
 import Filter from "./Filter";
 import Join from "./Join";
 import Participants from "./Participants";
@@ -15,11 +16,13 @@ class ParticipantPage extends Component {
         // Create initial state
         this.state = {
             projectID: props.projectID,
+            projectName: "",
             participants: [],
             relevantSkills: [],
             filteredSkills: [],
             fetchedParticipants: false,
-            fetchedSkills: false
+            fetchedSkills: false,
+            fetchedName: false
         }
 
         this.updateFilters = this.updateFilters.bind(this)
@@ -58,6 +61,12 @@ class ParticipantPage extends Component {
             }
             this.setState({relevantSkills: skills, fetchedSkills: true})
         })
+        
+        fetch(domain + "name?projectID=" + this.state.projectID).then(result => result.text()).then(json => {
+            this.setState({projectName: json, fetchedName: true})
+        })
+
+
     }
 
     // Make filter list match checked boxes
@@ -71,12 +80,16 @@ class ParticipantPage extends Component {
     }
 
     render() {
-        if (!this.state.fetchedParticipants || !this.state.fetchedSkills) {
+        if (!this.state.fetchedParticipants || !this.state.fetchedSkills || !this.state.fetchedName) {
             return null
         }
         return (
             <div>
-                <h1>Welcome to the Participants Page</h1>
+                <div className="back-to-home-div">
+                    <Link to="/" className="back-to-home">&lt; Back</Link>
+                </div>
+                <h1>{this.state.projectName} Landing Page</h1>
+                <h2>Share this project: {window.location.href}</h2>
                 <div className="menu">
                     <Filter props={this.state} handleSubmit={this.updateFilters}/>
                     <Join props={this.state} domain={domain}/>
