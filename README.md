@@ -13,6 +13,7 @@ and others will be able to contact you about wanting to work with you.
 git clone 'this-repo-url' app-name
 cd app-name
 npm install
+npm install --save browser-router
 ```
 
 ## Running The App
