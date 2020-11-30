@@ -28,22 +28,30 @@ class Join extends Component {
         initialState.projectID = parent.props.projectID
         initialState.relevantSkills = parent.props.relevantSkills
         initialState.domain = parent.domain
-        this.state = initialState;
-
+        this.state = initialState
 
         this.handleAdd = this.handleAdd.bind(this)
-        this.handleCancel = this.handleCancel.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleCheck = this.handleCheck.bind(this);
-
+        this.handleCancel = this.handleCancel.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.handleCheck = this.handleCheck.bind(this)
+        this.handleKeyPress = this.handleKeyPress.bind(this)
+        this.handleClear = this.handleClear.bind(this)
     }
 
     handleCancel(event) {
         if (event.name !== "open join") {
-            this.setState(initialState);
-            this.setState({checkedSkills: []})
+            this.setState({adding: false})
         }
+    }
+
+    handleClear() {
+        this.setState(initialState)
+        this.setState({adding: true, checkedSkills: []})
+    }
+    
+    handleKeyPress() {
+        this.handleSubmit()
     }
 
     handleSubmit() {
@@ -68,8 +76,8 @@ class Join extends Component {
 
     handleChange(event) {
         let updatedState = this.state;
-        updatedState[event.target.name] = event.target.value;
-        this.setState(updatedState);
+        updatedState[event.target.name] = event.target.value
+        this.setState(updatedState)
     }
 
     handleCheck(event) {
@@ -89,9 +97,9 @@ class Join extends Component {
 
     handleAdd() {
         if (! this.state.adding) {
-            this.setState({adding: true});
+            this.setState({adding: true})
         } else {
-            this.setState(initialState);
+            this.setState(initialState)
             this.setState({checkedSkills: []})
         }
     }
@@ -107,7 +115,9 @@ class Join extends Component {
                             onChange={this.handleChange}
                             onSubmit={this.handleSubmit}
                             onCancel={this.handleCancel}
-                            onClick={this.handleCheck}
+                            onCheck={this.handleCheck}
+                            onKeyPress={this.handleKeyPress}
+                            onClear={this.handleClear}
                         />
                     </div>
                 </OutsideAlerter>
@@ -119,7 +129,7 @@ class Join extends Component {
                 <button className="join-button" name="open join" onClick={this.handleAdd}>Join This Project</button>
                 {joinMenu}
             </div>
-        );
+        )
     }
 }
 
