@@ -17,7 +17,7 @@ code {
 }
 
 body {
-  background-color: #4b2e83;
+  background-color: #23272A;
   min-width: 50%;
 }
 
@@ -26,23 +26,35 @@ h1 {
   color: white;
   font-size: 64px;
   font-weight: 900;
+  margin-bottom: 0;
+}
+
+h2 {
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 2%;
 }
 
 button {
   font-size: 14px;
   font-family: Arial, sans-serif;
-  background-color: #eee;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 15px;
   border-radius: 18px;
   cursor: pointer;
   outline: none;
 }
+
 button:hover {
   background-color: #cfd8dc;
 }
+
 button.delete-button {
-  background-color: #e94c4c !important;
+  background-color: #e94c4c;
   color: white;
   bottom: 0;
   width: 100%;
@@ -55,20 +67,18 @@ button.delete-button {
 }
 
 .delete-button:hover {
-  background-color: #e67676 !important;
+  background-color: #e67676;
   color: white;
-  padding: 5px 10px;
   font-size: 14px;
 }
 
-button.join-button {
+button.join-button, button.filter-button {
   font-size: 24px;
   margin-bottom: 10px;
-}
-
-button.filter-button {
-  font-size: 24px;
-  margin-bottom: 10px;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.25), 
+              0 2px 2px rgba(0,0,0,0.25), 
+              0 4px 4px rgba(0,0,0,0.25), 
+              0 8px 8px rgba(0,0,0,0.25);
 }
 
 .menu {
@@ -94,17 +104,20 @@ button.filter-button {
 
 .participants li {
   float: left;
-  border: 1px solid white;
-  color: #99AAB5;
+  color: white;
   position: relative;
   left: 10px;
-  background-color: #2C2F33;
-  margin: .5em;
-  padding: .5em;
+  background-color: rgba(255, 255, 255, 0.11);
+  margin: 1.4em 0.7em 1.4em 0.7em;
+  padding: 0.5em;
   min-height: 25em;
   max-height: 25em;
   border-radius: 18px;
   width: 20em;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.25), 
+              0 4px 4px rgba(0,0,0,0.25), 
+              0 8px 8px rgba(0,0,0,0.25), 
+              0 16px 16px rgba(0,0,0,0.25);
 }
 
 .participants .name {
@@ -127,40 +140,42 @@ button.filter-button {
   height: 25px;
 }
 
-input {
+input, textarea {
+  width: 20em;
   height: 2em;
   font-size: 1em;
   padding-left: .4em;
   margin-bottom: 5px;
+  margin-right: 10px;
   background-color: #474444;
   color: white;
   position: relative;
+  border-width:1px;
+  border-style:inset;
 }
 
-input::placeholder {
-  color: #474444;
-  font-weight: normal;
-  font-size: 12px;
-  letter-spacing: 3px;
+input[type=checkbox] {
+  width: auto;
+  margin-left: 8px;
 }
 
 .editfields {
   border: 1px solid white;
-  color: #99AAB5;
+  color: #23272A;
   font-size: 16px;
   font-weight: bold;
   padding: 10px 15px;
   border-radius: 18px;
-  background-color: #2C2F33;
+  background-color: #23272A;
   position: absolute;
   text-align: left;
-  min-width: 210px;
-  z-index: 100  ;
+  z-index: 100;
 }
 
 .prompt {
   margin-bottom: 5px;
   margin-top: 5%;
+  color: white;
 }
 
 .mismatch {
@@ -176,9 +191,10 @@ input::placeholder {
   text-align: center;
 }
 
-.checkbox-label {
+label {
   display: block;
   font-weight: normal;
+  color: white;
 }
 
 [type="checkbox"] {
@@ -194,6 +210,11 @@ input::placeholder {
   vertical-align: middle;
   margin-left: 5%;
   right: 2%;
+}
+
+textarea {
+  resize: none;
+  height: 4em;
 }
 
 .divider1 {
@@ -222,7 +243,7 @@ input::placeholder {
 
 .delete-form {
   border: 1px solid white;
-  color: #99AAB5;
+  color: #23272A;
   font-size: 16px;
   font-weight: bold;
   padding: 10px 15px;
@@ -259,4 +280,65 @@ input::placeholder {
   text-align: left;
   min-width: 75px;
   margin-bottom: 20px;
+}
+
+.back-to-home {
+  font-size: 24px;
+  color: white;
+}
+
+.back-to-home-div {
+  margin: 10px;
+}
+
+.create-button {
+  max-height: min-content;
+}
+
+.grid-menu {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.grid-menu-item {
+  text-align: center;
+}
+
+.input-button-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.editfields2 {
+  border: 1px solid white;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 18px;
+  background-color: #23272A;
+  position: relative;
+  text-align: left;
+  z-index: 100;
+  margin-top: 10px;
+}
+
+.skills {
+  margin: 1% 5% 1% 0;
+  max-width: 20em;
+  min-width: 20em
+}
+
+.delete-skill {
+  margin: 1% 5% 1% 0;
+  margin-left: 10%;
+  max-width: 80px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
 }
