@@ -9,10 +9,18 @@ and others will be able to contact you about wanting to work with you.
 * npm >= 5.6
 
 ## Installing
+Installing npm
 ```bash
 git clone https://github.com/liuedw/Partner-Finder.git Partner-Finder
 cd Partner-Finder
 npm install
+```
+
+Hooking up the app to the database
+```bash
+cd src/main/resources
+open dbconn.properties in the text editor of your choice
+fill in the required information
 ```
 
 ## Running The App
