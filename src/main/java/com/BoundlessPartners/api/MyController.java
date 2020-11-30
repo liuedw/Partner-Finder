@@ -82,4 +82,9 @@ public class MyController {
         return participantDao.deleteParticipant(participant.getID(), participant.getHashword());
     }
 
+    @GetMapping(path = "/name")
+    public String getProjectName(@RequestParam int projectID) {
+        return participantDao.getProjectName(projectID);
+    }
+
 }

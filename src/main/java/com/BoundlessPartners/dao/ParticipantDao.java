@@ -45,5 +45,11 @@ public interface ParticipantDao {
      */
     int deleteParticipant(int participantID, String hashword);
 
+    /**
+     * Gets the name of a project based on the project's id.
+     * @param projectID The ID of the project.
+     * @return The name of the project.
+     */
+    String getProjectName(int projectID);
 
 }

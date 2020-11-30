@@ -46,6 +46,10 @@ public class ParticipantSQL implements ParticipantDao {
     private PreparedStatement deleteParticipantStatement;
     private PreparedStatement getParticipantByIDStatement;
 
+    // SQL commands used to add a project to the database
+    private static final String GET_PROJECT_NAME = "SELECT name FROM Projects WHERE id = ?";
+    private PreparedStatement getProjectNameStatement;
+
     /**
      * Initializes a new ParticipantSQL trivially
      * @throws SQLException If there was an issue connecting with the database
@@ -127,6 +131,7 @@ public class ParticipantSQL implements ParticipantDao {
         getProjectSkillsStatement = conn.prepareStatement(GET_PROJECT_SKILLS);
         deleteParticipantStatement = conn.prepareStatement(DELETE_PARTICIPANT);
         getParticipantByIDStatement = conn.prepareStatement(GET_PARTICIPANT_BY_ID);
+        getProjectNameStatement = conn.prepareStatement(GET_PROJECT_NAME);
     }
 
     /**
@@ -150,7 +155,6 @@ public class ParticipantSQL implements ParticipantDao {
             for(Skill skill : project.getSkills()) {
                 addSkillStatement.clearParameters();
                 addSkillStatement.setInt(1, id);
-                System.out.println(skill.name);
                 addSkillStatement.setString(2, skill.name);
                 addSkillStatement.execute();
             }
@@ -321,5 +325,21 @@ public class ParticipantSQL implements ParticipantDao {
             e.printStackTrace();;
         }
         return 0;
+    }
+
+    @Override
+    public String getProjectName(int projectID) {
+        try {
+            getProjectNameStatement.clearParameters();
+            getProjectNameStatement.setInt(1, projectID);
+            ResultSet results = getProjectNameStatement.executeQuery();
+
+            if (results.next()) {
+                return results.getString("name");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();;
+        }
+        return null;
     }
 }
