@@ -17,7 +17,7 @@ npm install
 ```
 
 Hooking up the app to the database
-```bash
+```
 cd src/main/resources
 open dbconn.properties in the text editor of your choice
 fill in the required information
